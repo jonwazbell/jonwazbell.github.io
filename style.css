@@ -122,3 +122,11 @@ section + section { border-top: 1px solid var(--line); }
 .site-footer a:hover { color: var(--ink); }
 
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+
+/* ---------- Photography gallery ---------- */
+.gallery { columns: 3 260px; column-gap: 1rem; margin-top: 2rem; }
+.gallery figure { margin: 0 0 1rem; break-inside: avoid; }
+.gallery img { width: 100%; height: auto; min-height: 180px; border-radius: 4px; background: var(--surface); }
+.gallery a { display: block; }
+.gallery a:hover img { opacity: .92; }
+.gallery figcaption { font-size: .88rem; color: var(--muted); padding-top: .4rem; }
