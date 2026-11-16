@@ -12,13 +12,16 @@ const year = document.getElementById('year');
 if (year) year.textContent = new Date().getFullYear();
 
 
-// Photo gallery: give wider photos more room
+// Photo gallery: give wider photos a bit more room.
+// STRENGTH: 0 = all photos the same width, 1 = width follows the photo's shape exactly.
+const STRENGTH = 0.5;
 document.querySelectorAll('.gallery img').forEach(img => {
   const fit = () => {
     if (!img.naturalWidth) return;
     const ratio = img.naturalWidth / img.naturalHeight;
-    img.style.aspectRatio = ratio;
-    img.closest('figure').style.setProperty('--r', ratio);
+    const shown = 1 + (ratio - 1) * STRENGTH;
+    img.style.aspectRatio = shown;
+    img.closest('figure').style.setProperty('--r', shown);
   };
   if (img.complete) fit(); else img.addEventListener('load', fit);
 });
